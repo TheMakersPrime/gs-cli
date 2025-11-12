@@ -1,0 +1,23 @@
+[package]
+name = "gs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+google-sheets4 = "5.0.4"
+tokio = { version = "1.26.0", features = ["full"] }
+hyper = "0.14.24"
+hyper-rustls = { version = "0.23.2", features = ["http1", "http2"] }
+serde_derive = "1.0"
+serde = "^1.0"
+serde_json = "1.0.117"
+regex = "1.10.5"
+thiserror = "1.0.61"
+clap = { version = "4.5.7", features = ["derive"] }
+colored = "2.1.0"
+
+[profile.release]
+strip = true  # Automatically strip symbols from the binary.
+opt-level = "z"
+lto = true
+codegen-units = 1
